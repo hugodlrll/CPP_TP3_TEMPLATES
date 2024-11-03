@@ -79,15 +79,15 @@ TEST(CarreTest, Perimetre)
 TEST(ListeFormesTest, Ajouter) {
     ListeFormes<int, int> lf;
     Carre<int, int> c(10);
-    lf.ajouter(c);
+    lf.ajouter(&c);
     EXPECT_EQ(lf.getSize(), 1);
 }
 
 TEST(ListeFormesTest, Supprimer) {
     ListeFormes<int, int> lf;
     Carre<int, int> c(10);
-    lf.ajouter(c);
-    lf.supprimer(c);
+    lf.ajouter(&c);
+    lf.supprimer(&c);
     EXPECT_EQ(lf.getSize(), 0);
 }
 
@@ -95,8 +95,8 @@ TEST(ListeFormesTest, CalcSurfaceTot) {
     ListeFormes<int, int> lf;
     Carre<int, int> c(10);
     Rectangle<int, int> r (10, 20);
-    lf.ajouter(c);
-    lf.ajouter(r);
+    lf.ajouter(&c);
+    lf.ajouter(&r);
     int surf = lf.calcSurfaceTot();
     EXPECT_EQ(surf, 300);    
 }
@@ -106,8 +106,8 @@ TEST(ListeFormesTest, CalcBoiteEnglobante) {
     Carre<int, int> c(10);
     Rectangle<int, int> r (10, 20);
     tuple<int, int> t (10, 20);
-    lf.ajouter(c);
-    lf.ajouter(r);
+    lf.ajouter(&c);
+    lf.ajouter(&r);
     tuple<int,int> be = lf.calcBoiteEnglobante();
 
     EXPECT_EQ(std::get<0>(be), std::get<0>(t));

@@ -5,6 +5,10 @@ set(SOURCES
 
 set(HEADERS
     ../src/PointT.hpp
+    ../src/Forme.hpp
+    ../src/Rectangle.hpp
+    ../src/Carre.hpp
+    ../src/ListeFormes.hpp
 )
 
 # Créer l'exécutable

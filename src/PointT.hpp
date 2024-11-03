@@ -1,4 +1,8 @@
+#ifndef pointt_hpp
+#define pointt_hpp
+
 #include <ostream>
+#include <algorithm>
 
 using namespace std;
 
@@ -50,6 +54,13 @@ void PointT<T>::translater(T x, T y){
     this->y += y;
 }
 
+template <>
+void PointT<string>::translater(string x, string y)
+{
+    swap(x,this->x);
+    swap(y, this->y);
+}
+
 template<typename T> 
 T PointT<T>::getX() const{
     return this->x;
@@ -98,5 +109,5 @@ ostream& operator<<(ostream& os, PointT<T> const & point)
     return os;
 }
 
-
+#endif
 
